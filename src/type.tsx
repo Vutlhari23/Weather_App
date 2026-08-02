@@ -4,7 +4,7 @@ export type CardItem ={
     humidity: string,
     temperature:string,
     time: string,
-    windspeed,
+    windspeed: string,
     
 
 }
