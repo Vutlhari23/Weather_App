@@ -13,6 +13,4 @@ export const InputText =({placeholder,value,onchange,style,className,label}:Inpu
 <label>{label}</label>
 <input type="text" placeholder={placeholder} value={value} onChange={onchange} style={style} className={className}/>
 </div>
-
-
 }
