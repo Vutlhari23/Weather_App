@@ -5,6 +5,7 @@ import {TextInput} from '../TextInput/TextInput'
 import { Button } from '../Button/Button'
 import React, { useEffect,useState } from 'react'
 import { WeatherCard  } from '../WeatherCard/WeatherCard'
+import type { CardItem } from '../../../type'
 
 export const MainContent = () => {
   
@@ -13,31 +14,49 @@ export const MainContent = () => {
     const [latitude,setLatitude]= useState(0);
     const [longitude,setLongitude]= useState(0);
     const [searchCity,setSearchCity] = useState("");
+    const [weatherData,setWeatherData] =useState<CardItem[]>([]);
  
 
 
-  
+      //Get weather data from the weather api using the url.
   useEffect(()=>{
   
-    //Get weather data from the weather api using the url.
+
     if(latitude===0 && longitude=== 0)
-      return;  // stops the request for coordinates( 0,0)
+      return;                                 // stops the request for coordinates( 0,0)
     async function getWeather() { 
 
       const response = await fetch(
-          `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=temperature_2m,weather_code,wind_speed_10m&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=auto`
+          `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=auto`
        );
 
     const data = await response.json();
 
-    console.log(data);}
+    console.log(data);
+       
+    
+setWeatherData([
+  {
+    city: searchCity,
+    province: "",
+    temperature: `${data.current.temperature_2m}`,
+    humidity: `${data.current.relative_humidity_2m}`,
+    windspeed: `${data.current.wind_speed_10m}`,
+    time: data.current.time,
+  },
+]);
+  
+  
+  
+  
+  
+  }
 
       getWeather();
   },[longitude,latitude]);
 
 //A user provides a place and it will be converted to latitude and longitude and set them  to state variables 
 const getCityCoordinates = async ()=>{
- 
          if(!searchCity.trim())   
     return;   
   try{
@@ -92,12 +111,20 @@ const getCurrentLocation = ()=>{
               <Button label='Use my Location' className={styles['use-location-btn']} onClick={getCurrentLocation}></Button>
         </div>
         </ContentContainer >
-           <p>Latitude: {latitude}</p>
-           <p>Longitude: {longitude}</p>
+        
 
-           {
-            
-           }
+{weatherData.map((weather) => (
+  <WeatherCard
+    key={weather.city}
+    city={weather.city}
+    province={weather.province}
+    temperature={weather.temperature}
+    humidity={weather.humidity}
+    windspeed={weather.windspeed}
+    time={weather.time}
+  />
+))}
+    
        
      </ContentContainer>
 

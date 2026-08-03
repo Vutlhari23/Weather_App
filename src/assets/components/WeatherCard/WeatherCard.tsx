@@ -7,12 +7,12 @@ return (
 
  <>  
 
-    <Text variant='h3'>{city}</Text>
-    <Text variant='h3'>{province}</Text>
-    <Text variant='h3'>{humidity}</Text>
-    <Text variant='h3'>{temperature}</Text>
-    <Text variant='h3'>{time}</Text>
-    <Text variant='h3'>{windspeed}</Text>
+    <Text variant='h3'>city : {city}</Text>
+    <Text variant='h3'> Province : { province}</Text>
+    <Text variant='h3'>  Humidity : {humidity}</Text>
+    <Text variant='h3'> Temperature : {temperature}</Text>
+    <Text variant='h3'>Time : {time}</Text>
+    <Text variant='h3'> windSpeed: {windspeed}</Text>
  </>
 )
 
