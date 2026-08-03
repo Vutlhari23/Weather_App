@@ -1,0 +1,13 @@
+.header{
+    background-color: lightgrey;
+    display: flex;
+    color: white;
+    justify-content: space-between;
+    
+}
+.left-content{
+    display: flex;
+    gap: 10px;
+    padding-top: 20px;
+}
+
