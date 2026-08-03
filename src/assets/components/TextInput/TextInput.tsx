@@ -7,7 +7,7 @@ type InputTextProps = {
     id?: string,
     placeholder?:string,
     value?:string,
-    onchange? : () => void,
+     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
     style?: React.CSSProperties,
     className?: string
     label?: string,
@@ -15,12 +15,14 @@ type InputTextProps = {
     name?: string,
 }
 
-export const TextInput =({id,placeholder,value,onchange,style,className,label,error,name}:InputTextProps) =>{
+export const TextInput =({id,placeholder,onChange,value,style,className,label,error,name}:InputTextProps) =>{
+
 return(
 <div>
 <label>{label}</label>
-<input type="text" placeholder={placeholder} value={value} onChange={onchange} style={style} className={className}/>
+<input type="text" placeholder={placeholder} value={value} onChange={onChange} style={style} className={className}/>
 {error && <span className={styles['input-error']}>{error}</span>}
 </div>
 )
+
 }

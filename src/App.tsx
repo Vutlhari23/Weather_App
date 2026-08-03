@@ -78,14 +78,7 @@ const getCurrentLocation = ()=>{
   return (
     <>
      <MainContent/>
-     <input type="text" placeholder="Enter a location" value={searchCity} onChange={(e) => setSearchCity(e.target.value)}/>
-     <button onClick={getCityCoordinates}>Search</button>
-     <button onClick={getCurrentLocation}>Use My Location</button>
-    <p>Latitude: {latitude}</p>
-    <p>Longitude: {longitude}</p>
-
    
-
 
     </>
   )

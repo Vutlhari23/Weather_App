@@ -11,7 +11,7 @@ export const Button = ({className,label,onClick,style}: ButtonProp) => {
           <button 
           className={className} 
           onClick={onClick}
-          style ={{width:"5rem", height: "1.5rem",borderRadius:"8px",borderColor:" lightgray",...style}}>
+          style ={{width:"5rem", height: "2.3rem",borderRadius:"8px",borderColor:" lightgray",...style}}>
             {label}
           </button>
         
