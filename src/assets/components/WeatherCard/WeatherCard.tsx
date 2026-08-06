@@ -8,7 +8,6 @@ return (
  <>  
 
     <Text variant='h3'>city : {city}</Text>
-    <Text variant='h3'> Province : { province}</Text>
     <Text variant='h3'>  Humidity : {humidity}</Text>
     <Text variant='h3'> Temperature : {temperature}</Text>
     <Text variant='h3'>Time : {time}</Text>

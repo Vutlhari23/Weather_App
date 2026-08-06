@@ -24,7 +24,7 @@ export const MainContent = () => {
 
     if(latitude===0 && longitude=== 0)
       return;                                 // stops the request for coordinates( 0,0)
-    async function getWeather() { 
+    async function getWeather(latitude: number, longitude: number) { 
 
       const response = await fetch(
           `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=auto`
@@ -39,7 +39,7 @@ setWeatherData([
   {
     city: searchCity,
     province: "",
-    temperature: `${data.current.temperature_2m}`,
+    temperature: data.current.temperature_2m,
     humidity: `${data.current.relative_humidity_2m}`,
     windspeed: `${data.current.wind_speed_10m}`,
     time: data.current.time,
@@ -52,7 +52,7 @@ setWeatherData([
   
   }
 
-      getWeather();
+      getWeather(longitude,latitude)
   },[longitude,latitude]);
 
 //A user provides a place and it will be converted to latitude and longitude and set them  to state variables 
