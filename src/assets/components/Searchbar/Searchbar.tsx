@@ -7,7 +7,7 @@ import { useState } from "react"
 
 type  SearchProps= {
 
-   getWeatherData: (latitude: number, longitude: number) =>  void;
+   getWeatherData: (latitude: number, longitude: number, city: string) =>  void;
 }
 
 
@@ -40,7 +40,7 @@ const  getCityCoordinates= async () => {
     const latitude =data.results[0].latitude;
     const longitude= data.results[0].longitude;
 
-        getWeatherData(latitude,longitude);
+        getWeatherData(latitude,longitude,searchCity);
 
 
     }
