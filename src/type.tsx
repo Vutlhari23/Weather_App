@@ -1,10 +1,25 @@
-export type CardItem ={ 
-    city: string,
-    province: string,
-    humidity: string,
-    temperature:string,
-    time: string,
-    windspeed: string,
-    
+export interface CurrentWeather {
+  city: string;
+  province: string;
+  temperature: number;
+  humidity: string;
+  windspeed: string;
+  time: string;
+}
 
+export interface HourlyWeather {
+  city: string;
+  province: string;
+  temperature: number;
+  humidity: string;
+  windspeed: string;
+  time: string;
+}
+
+export interface DailyWeather {
+
+  province: string;
+  date: string;
+  temperature: number;
+ 
 }
