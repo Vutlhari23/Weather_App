@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { ContentContainer } from "../ContentContainer/ContentContainer";
 import styles from "../MainContent/MainContent.module.css";
 import { Text } from "../Text/Text";
@@ -188,3 +189,9 @@ setHourlyWeather(hourly);
     </ContentContainer>
   );
 }; 
+=======
+import styles from  '../MainContent/MainContent.module.css'
+import type { HourlyWeather, DailyWeather,CurrentWeather } from '../../../type'
+import {CurrentForecast} from  "../CurrentForecast/CurrentForecast"
+
+>>>>>>> d7eb1c27dfb3ea658887ecff581b434d97b903e9
